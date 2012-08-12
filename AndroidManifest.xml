@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="me.raspass.abode" android:versionCode="1" android:versionName="1.0" >
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="15" />
+    <application android:icon="@drawable/icon" android:label="Abode" android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <activity android:name="Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
