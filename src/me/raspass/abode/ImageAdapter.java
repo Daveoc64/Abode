@@ -5,7 +5,6 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 public class ImageAdapter extends BaseAdapter
 {
 	private Context context;
-	private List<ActivityInfo> apps = new ArrayList<ActivityInfo>();
+	private List<ResolveInfo> apps = new ArrayList<ResolveInfo>();
 	private PackageManager pm;
 	
 	public ImageAdapter( Context context )
@@ -37,8 +36,8 @@ public class ImageAdapter extends BaseAdapter
 			{
 				if ( apps.get( i ).loadLabel( pm ).toString().compareTo( app.loadLabel( pm ).toString() ) > 0 ){ break; }
 			}
-			
-			this.apps.add( i, app.activityInfo );
+
+			this.apps.add( i, app );
 		}
 	}
 	
@@ -46,7 +45,7 @@ public class ImageAdapter extends BaseAdapter
 	{
 		if ( convertView != null ){ return ( View ) convertView; }
 
-		ActivityInfo app = apps.get( position );
+		ResolveInfo app = apps.get( position );
  
 		View gridView = ( ( LayoutInflater ) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE ) ).inflate( R.layout.icon, null );
  
@@ -66,9 +65,11 @@ public class ImageAdapter extends BaseAdapter
 		return apps.size();
 	}
  
-	public ActivityInfo getItem( int position )
+	public Object getItem( int position )
 	{
-		return apps.get( position );
+		context.startActivity( pm.getLaunchIntentForPackage( apps.get( position ).activityInfo.packageName ) );
+
+		return null;
 	}
 
 	public long getItemId( int position )

@@ -2,7 +2,6 @@ package me.raspass.abode;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -22,10 +21,8 @@ public class Main extends Activity implements AdapterView.OnItemClickListener
         gridview.setOnItemClickListener(this);
     }
     
-	public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+	public void onItemClick( AdapterView<?> parent, View v, int position, long id )
 	{
-		ActivityInfo app = (ActivityInfo) parent.getAdapter().getItem( position );
-		
-		startActivity( getPackageManager().getLaunchIntentForPackage( app.packageName ) );
+		( ( ImageAdapter ) parent.getAdapter() ).getItem( position );
 	}
 }
