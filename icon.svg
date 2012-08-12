@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="512" height="512">
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:rgb(0,173,238);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgb(0,119,193);stop-opacity:1"/>
-    </linearGradient>
-	<g stroke-linecap="round" stroke-linejoin="round" stroke-width="25" fill="url(#grad)" stroke="url(#grad)">
+<svg height="512" width="512" xmlns="http://www.w3.org/2000/svg">
+	<linearGradient id="a">
+		<stop stop-color="#0BF"/>
+		<stop offset="100" stop-color="#07C"/>
+	</linearGradient>
+	<g fill="url(#a)" stroke-linecap="round" stroke-linejoin="round" stroke-width="25" stroke="url(#a)">
 		<path d="M 28,250 L 256,70 L 370,160 L 370,110 L 414,110 L 414,195 484,250" fill="none"/>
 		<path d="M 98,440 L 98,260 L 256,135 L 414,260 L 414,440 Z"/>
 	</g>
