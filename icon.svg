@@ -4,7 +4,7 @@
 		<stop offset="100" stop-color="#07C"/>
 	</linearGradient>
 	<g fill="url(#a)" stroke-linecap="round" stroke-linejoin="round" stroke-width="25" stroke="url(#a)">
-		<path d="M 28,250 L 256,70 L 370,160 L 370,110 L 414,110 L 414,195 484,250" fill="none"/>
+		<path d="M 28,250 L 256,70 l 114,90 L 370,110 l 44,0 l 0,85 L 484,250" fill="none"/>
 		<path d="M 98,440 L 98,260 L 256,135 L 414,260 L 414,440 Z"/>
 	</g>
 </svg>
