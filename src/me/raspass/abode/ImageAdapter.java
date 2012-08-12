@@ -44,28 +44,19 @@ public class ImageAdapter extends BaseAdapter
 	
 	public View getView( int position, View convertView, ViewGroup parent )
 	{
+		if ( convertView != null ){ return ( View ) convertView; }
+
 		ActivityInfo app = apps.get( position );
-		View gridView;
-		LayoutInflater inflater = ( LayoutInflater ) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-
-		if (convertView == null)
-		{
-			gridView = new View( context );
  
-			gridView = inflater.inflate( R.layout.icon, null );
+		View gridView = ( ( LayoutInflater ) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE ) ).inflate( R.layout.icon, null );
  
-			TextView textView = ( TextView ) gridView.findViewById( R.id.icon );
+		TextView textView = ( TextView ) gridView.findViewById( R.id.icon );
 			
-			Drawable img = app.loadIcon( pm );
-			img.setBounds( 0, 0, 70, 70 );
-			textView.setCompoundDrawables( null, img, null, null );
+		Drawable img = app.loadIcon( pm );
+		img.setBounds( 0, 0, 70, 70 );
+		textView.setCompoundDrawables( null, img, null, null );
 
-			textView.setText( app.loadLabel( pm ) );
-		}
-		else
-		{
-			gridView = ( View ) convertView;
-		}
+		textView.setText( app.loadLabel( pm ) );
  
 		return gridView;
 	}
