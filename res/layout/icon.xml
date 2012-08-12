@@ -1,6 +1,5 @@
 <TextView
 	android:gravity="center"
-	android:id="@+id/icon"
 	android:layout_width="90dp"
 	android:layout_height="90dp"
 	android:textSize="16dp"
