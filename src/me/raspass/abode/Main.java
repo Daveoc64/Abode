@@ -11,15 +11,15 @@ public class Main extends Activity implements AdapterView.OnItemClickListener
 	private GridView gridview;
 	
 	@Override
-    public void onCreate( Bundle savedInstanceState )
+	public void onCreate( Bundle savedInstanceState )
 	{
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.main );
+		super.onCreate( savedInstanceState );
+		setContentView( R.layout.main );
         
-        gridview = ( GridView ) findViewById( R.id.gridview );
-        gridview.setAdapter( new ImageAdapter( this ) );
-        gridview.setOnItemClickListener(this);
-    }
+		gridview = ( GridView ) findViewById( R.id.gridview );
+		gridview.setAdapter( new ImageAdapter( this ) );
+		gridview.setOnItemClickListener(this);
+	}
     
 	public void onItemClick( AdapterView<?> parent, View v, int position, long id )
 	{
