@@ -1,7 +1,6 @@
 package me.raspass.abode;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 public class ImageAdapter extends BaseAdapter
 {
 	private Context context;
-	private List<ResolveInfo> apps = new ArrayList<ResolveInfo>();
+	private ArrayList<ResolveInfo> apps = new ArrayList<ResolveInfo>();
 	private PackageManager pm;
 	
 	public ImageAdapter( Context context )
