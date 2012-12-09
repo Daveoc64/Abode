@@ -4,7 +4,6 @@
     android:layout_height="match_parent" >
 
     <TableRow
-        android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dip" >
@@ -14,21 +13,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Button
-            android:id="@+id/addColumn"
+            android:id="@+id/removeColumn"
             android:text="-" />
 
         <TextView
             android:id="@+id/columns"
-            android:text="4"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Button
-            android:id="@+id/removeColumn"
+            android:id="@+id/addColumn"
             android:text="+" />
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dip" >
@@ -38,17 +35,37 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Button
-            android:id="@+id/addRow"
+            android:id="@+id/removeRow"
             android:text="-" />
 
         <TextView
             android:id="@+id/rows"
-            android:text="7"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Button
-            android:id="@+id/removeRow"
+            android:id="@+id/addRow"
             android:text="+" />
     </TableRow>
 
+        <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:text="Padding"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/removePadding"
+            android:text="-" />
+
+        <TextView
+            android:id="@+id/padding"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/addPadding"
+            android:text="+" />
+    </TableRow>
 </TableLayout>

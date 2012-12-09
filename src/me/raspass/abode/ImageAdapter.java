@@ -6,17 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.GridView;
+import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<ResolveInfo> apps = new ArrayList<ResolveInfo>();
 	private PackageManager pm;
+
+	public int height;
+	public int width;
 
 	public ImageAdapter(Context context) {
 		this.context = context;
@@ -42,15 +44,14 @@ public class ImageAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ResolveInfo app = apps.get(position);
 
-		TextView view = (TextView) (convertView == null ? ((LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
-				R.layout.icon, null) : convertView);
+		ImageView view = convertView == null ? new ImageView(context)
+				: (ImageView) convertView;
 
-		Drawable img = app.loadIcon(pm);
-		img.setBounds(0, 0, 70, 70);
-		view.setCompoundDrawables(null, img, null, null);
+		// TODO text = app.loadLabel(pm));
 
-		view.setText(app.loadLabel(pm));
+		view.setImageDrawable(app.loadIcon(pm));
+		view.setScaleType(ImageView.ScaleType.FIT_CENTER);
+		view.setLayoutParams(new GridView.LayoutParams(width, height));
 
 		return view;
 	}
