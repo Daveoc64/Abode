@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class Main extends Activity implements AdapterView.OnItemClickListener {
+public class Main extends Activity {
 	private AlertDialog settings;
 	private GridView gridview;
 	private ImageAdapter imageAdapter;
@@ -97,21 +97,6 @@ public class Main extends Activity implements AdapterView.OnItemClickListener {
 	}
 
 	@Override
-	public void onWindowFocusChanged(boolean focus) {
-		imageAdapter = new ImageAdapter(this);
-
-		gridview = (GridView) findViewById(R.id.gridview);
-		gridview.setAdapter(imageAdapter);
-		gridview.setOnItemClickListener(this);
-
-		redraw();
-	}
-
-	public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-		((ImageAdapter) parent.getAdapter()).getItem(position);
-	}
-
-	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		settings.show();
 
@@ -119,5 +104,21 @@ public class Main extends Activity implements AdapterView.OnItemClickListener {
 		ActivityCompat.invalidateOptionsMenu(this);
 
 		return true;
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean focus) {
+		imageAdapter = new ImageAdapter(this);
+
+		gridview = (GridView) findViewById(R.id.gridview);
+		gridview.setAdapter(imageAdapter);
+		gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View v,
+					int position, long id) {
+				((ImageAdapter) parent.getAdapter()).getItem(position);
+			}
+		});
+
+		redraw();
 	}
 }
