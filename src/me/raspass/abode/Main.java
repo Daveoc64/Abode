@@ -46,6 +46,13 @@ public class Main extends Activity implements AdapterView.OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		// Swap values if landscape
+		if (getResources().getConfiguration().orientation == 2) {
+			int temp = columns;
+			columns = rows;
+			rows = temp;
+		}
+
 		View view = this.getLayoutInflater().inflate(R.layout.settings, null);
 
 		View.OnClickListener listener = new View.OnClickListener() {
