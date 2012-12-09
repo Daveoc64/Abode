@@ -44,7 +44,11 @@ public class Main extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+
+		gridview = new GridView(this);
+		gridview.setFadingEdgeLength(0);
+
+		setContentView(gridview);
 
 		// Swap values if landscape
 		if (getResources().getConfiguration().orientation == 2) {
@@ -110,7 +114,6 @@ public class Main extends Activity {
 	public void onWindowFocusChanged(boolean focus) {
 		imageAdapter = new ImageAdapter(this);
 
-		gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(imageAdapter);
 		gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
